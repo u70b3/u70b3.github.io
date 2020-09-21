@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "hexo s",
-    "build": "hexo clean & hexo deploy & hexo clean",
+    "build": "hexo clean & hexo deploy",
     "build-default": "hexo generate"
   },
   "hexo": {
