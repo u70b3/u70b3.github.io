@@ -1,7 +1,9 @@
 ---
 title: Linux笔记
 date: 2020-10-10 23:29:48
-tags:
+tags: 
+    - linux
+    - 
 ---
 
 ## 基本操作
