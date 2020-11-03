@@ -2,7 +2,7 @@
 title: C++的一些小技巧
 date: 2020-10-29 21:38:54
 tags:
-    - C++
+    - cpp
     - demo
 description: 记录C++开发中的小技巧和一些易错易混知识，以及C++的坑
 ---
@@ -144,3 +144,5 @@ int main()
 - `cin.get(char)` 可以读取字符、空格、TAB、回车，仅读取一个，剩余的依然会留在缓存区
 - `cin.getline(ch，len)` getline是读取一行到一个数组，而get是单纯的读取数据
 - `getline(cin,str);` 第二个参数是string，不存在溢出问题
+
+## 五、
