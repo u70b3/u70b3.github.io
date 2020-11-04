@@ -7,7 +7,7 @@ tags:
 
 keywords: 'linux,shell,network,system'
 
-description: 记录后台开发常用的Linux工具
+description: 记录后台开发常用的 Linux 工具
 
 ---
 

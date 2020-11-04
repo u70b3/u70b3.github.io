@@ -1,10 +1,10 @@
 ---
-title: C++的一些小技巧
+title: C++ 的一些小知识
 date: 2020-10-29 21:38:54
 tags:
     - cpp
     - demo
-description: 记录C++开发中的小技巧和一些易错易混知识，以及C++的坑
+description: 记录 C++ 开发中的小技巧和一些易错易混知识，以及 C++ 的坑
 ---
 
 
