@@ -95,7 +95,7 @@ copy:
   enable: true
   copyright:
     enable: true
-    limit_count: 50
+    limit_count: 20
 
 footer:
   owner:
