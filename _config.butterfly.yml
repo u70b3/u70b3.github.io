@@ -15,6 +15,10 @@ menu:
   友链: /link/ || fas fa-link
   关于: /about/ || fas fa-heart
 
+social:
+  fab fa-github: https://github.com/u70b3 || Github
+  fas fa-envelope: mailto:184937612@qq.com || Email
+
 # Code Blocks (代碼相關)
 # --------------------------------------
 highlight_theme: mac light #  darker / pale night / light / ocean / mac / mac light / false
@@ -22,10 +26,6 @@ highlight_copy: true # copy button
 highlight_lang: true # show the code language
 highlight_shrink: false # true: shrink the code blocks / false: expand the code blocks | none: expand code blocks and hide the button
 code_word_wrap: false
-
-social:
-  fab fa-github: https://github.com/u70b3 || Github
-  fas fa-envelope: mailto:184937612@qq.com || Email
 
 # 图标
 favicon: /images/favicon.png
@@ -271,4 +271,5 @@ canvas_nest:
 # 分享引擎
 sharejs:
   enable: true
-  sites: facebook,twitter,wechat,weibo,qq #想要显示的内容
+  sites: wechat,weibo,qq #想要显示的内容
+

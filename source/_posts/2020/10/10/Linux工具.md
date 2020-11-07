@@ -2,8 +2,8 @@
 title: Linux工具
 date: 2020-10-10 23:29:48
 tags: 
-    - linux
-    - shell
+    - Linux
+    - Shell
 
 keywords: 'linux,shell,network,system'
 
