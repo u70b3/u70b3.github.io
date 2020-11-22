@@ -6,6 +6,7 @@ tags:
     - 手撕代码
 description: 手撕 C++ 的 string
 cover: 
+sticky: 2
 ---
 
 ## 源代码
@@ -15,12 +16,10 @@ cover:
 #ifndef STRING_TRIVIAL_H
 #define STRING_TRIVIAL_H
 
+#include <utility>
 #include <cassert>
 #include <cstring>
-
 #include <iostream>
-#include <utility>
-
 
 namespace kid
 {
@@ -63,10 +62,9 @@ namespace kid
         /* Traditional:
         String& operator=(const String& rhs)
         {
-            String tmp(rhs);
-            this->swap(tmp);
+            String(rhs).swap(*this); // copy-ctor--RAII | Non-throwing swap
             return *this;
-        }
+        }// Old resources released when destructor of _ is called.
         */
         // In C++11, this is unifying assignment operator
         // the pass-by-value parameter serves as a temporary
@@ -76,7 +74,8 @@ namespace kid
             // std::cout << "copy-assignment-operator" << std::endl;
             this->swap(rhs); // Non-throwing swap
             return *this;
-        } // Old resources released when destructor of s is called.
+        } // Old resources released when destructor of rhs is called.
+        //
 
         // C++11 move-ctor
         String(String &&rhs) noexcept
