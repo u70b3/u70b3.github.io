@@ -15,9 +15,12 @@ cover:
 #ifndef STRING_TRIVIAL_H
 #define STRING_TRIVIAL_H
 
-#include <utility>
 #include <cassert>
 #include <cstring>
+
+#include <iostream>
+#include <utility>
+
 
 namespace kid
 {
@@ -27,18 +30,21 @@ namespace kid
         String()
             : data_(new char[1])
         {
+            // std::cout << "default-ctor" << std::endl;
             *data_ = '\0';
         }
 
         String(const char *str)
             : data_(new char[strlen(str) + 1])
         {
+            // std::cout << "(const char*)-ctor" << std::endl;
             strcpy(data_, str);
         }
 
         String(const String &rhs)
             : data_(new char[rhs.size() + 1])
         {
+            // std::cout << "copy-ctor" << std::endl;
             strcpy(data_, rhs.c_str());
         }
         /* Implement copy-ctor with delegating constructor in C++11
@@ -50,6 +56,7 @@ namespace kid
 
         ~String() noexcept
         {
+            // std::cout << "dtor" << std::endl;
             delete[] data_;
         }
 
@@ -57,22 +64,25 @@ namespace kid
         String& operator=(const String& rhs)
         {
             String tmp(rhs);
-            swap(tmp);
+            this->swap(tmp);
             return *this;
         }
         */
         // In C++11, this is unifying assignment operator
+        // the pass-by-value parameter serves as a temporary
+        // http://en.wikibooks.org/wiki/More_C++_Idioms/Copy-and-swap
         String &operator=(String rhs) // yes, pass-by-value
         {
-            // http://en.wikibooks.org/wiki/More_C++_Idioms/Copy-and-swap
-            swap(rhs);
+            // std::cout << "copy-assignment-operator" << std::endl;
+            this->swap(rhs); // Non-throwing swap
             return *this;
-        }
+        } // Old resources released when destructor of s is called.
 
         // C++11 move-ctor
         String(String &&rhs) noexcept
             : data_(rhs.data_)
         {
+            // std::cout << "move-ctor" << std::endl;
             rhs.data_ = nullptr;
         }
 
@@ -80,7 +90,7 @@ namespace kid
         http://stackoverflow.com/questions/17961719/
         String& operator=(String&& rhs)
         {
-            swap(rhs);
+            this->swap(rhs);
             return *this;
         }
         */
@@ -96,17 +106,18 @@ namespace kid
         char *data_;
     };
 } // namespace kid
-
 #endif
-
 ```
 
 ## 测试代码
 
 文件：`StringTrivialTest.cpp`
-命令：`g++ -O1 -g -Wall -o test StringTrivialTest.cpp && ./test`
+命令：`g++ -O0 -g -Wall -o test StringTrivialTest.cpp && ./test`
+
 ```c++
 #include "StringTrivial.h"
+#include <iostream>
+#include <utility>
 #include <vector>
 
 using namespace kid;
@@ -117,31 +128,45 @@ void bar(const String &x) {}
 
 String baz()
 {
-    String ret("world");
-    return ret;
+    String res("world");
+    return res;
 }
+String baz1(String &&s)
+{
+    //The std::move function converts the lvalue other to an rvalue.
+    String res = std::move(s);
+    return res;
+}
+
 int main()
 {
-    String s0;
-    String s1("hello");
-    String s2(s0);
-    String s3(s1);
-    s2 = s1;
-    s3 = s3;
-    s1 = "awesome";
+    std::cout << "==start main==" << std::endl;
+    String s0;          //default-ctor
+    String s1("hello"); //(const char*)-ctor
+    String s2(s0);      //copy-ctor
+    String s3(s1);      //copy-ctor
+    s2 = s1;            //copy-ctor|copy-assignment-operator|dtor
+    s3 = s3;            //copy-ctor|copy-assignment-operator|dtor
+    s1 = "awesome";     //(const char*)-ctor|copy-assignment-operator|dtor
 
-    foo(s1);
-    bar(s1);
-    foo("temp");
-    bar("temp");
-    String s4 = baz();
-    s4 = baz();
+    foo(s1);             //copy-ctor|dtor
+    bar(s1);             //
+    foo("temp");         //(const char*)-ctor|dtor
+    bar("temp");         //(const char*)-ctor|dtor
+    String s4 = baz();   //(const char*)-ctor
+    s4 = baz();          //(const char*)-ctor|copy-assignment-operator|dtor
+    baz1(String("kid")); //(const char*)-ctor|move-ctor|dtor
+
+    std::cout << "=start vector test=" << std::endl;
 
     std::vector<String> svec;
-    svec.push_back(s0);
-    svec.push_back(s1);
-    svec.push_back("good job");
+    svec.push_back(s0);         //copy-ctor
+    svec.push_back(s1);         //copy-ctor
+    svec.push_back("good job"); //(const char*)-ctor|move-ctor|dtor
+
+    std::cout << "=end vector test=" << std::endl;
+
+    std::cout << "==end main==" << std::endl;
     return 0;
 }
-
 ```
