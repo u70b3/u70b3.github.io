@@ -84,7 +84,7 @@ B;
 ### string -> char* 使用string类方法
 ```c++
     string str = "hello";
-    const char *p = str.data();
+    const char *p = str.data();     //尽量不用
 	const char *q = str.c_str();
 ```
 
