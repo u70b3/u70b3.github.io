@@ -11,7 +11,7 @@ description: 记录后台开发常用的 Linux 工具
 
 ---
 
-## 快捷键
+## 快捷操作
 
 ### 编辑命令
 - Ctrl + A ：移到命令行首
@@ -25,10 +25,16 @@ description: 记录后台开发常用的 Linux 工具
 - Ctrl + L：清屏
 - Ctrl + C：终止命令
 - Ctrl + Z：挂起命令
+- Ctrl + P、Ctrl + Q
 
 ### Bang (!) 命令
 - !! ：执行上一条命令
 - !blah：执行最近的以 blah 开头的命令，如 !ls
+
+### 进程相关
+- nohup 脱离terminal仍可运行
+-  **&**，后台运行，与ctrl-z一样，结合**fg** **bg** **jobs**
+-  
 
 ## 开发及调试
 > 调试工具比开发工具更考验一个人的工程能力。
