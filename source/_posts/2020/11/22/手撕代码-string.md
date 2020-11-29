@@ -6,7 +6,7 @@ tags:
     - 手撕代码
 description: 手撕 C++ 的 string
 cover: 
-sticky: 2
+sticky: 
 ---
 
 ## 源代码
