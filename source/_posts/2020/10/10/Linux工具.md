@@ -33,8 +33,9 @@ description: 记录后台开发常用的 Linux 工具
 
 ### 进程相关
 - nohup 脱离terminal仍可运行
--  **&**，后台运行，与ctrl-z一样，结合**fg** **bg** **jobs**
--  
+- **&**，后台运行，与ctrl-z一样，结合**fg** **bg** **jobs**
+
+--- 
 
 ## 开发及调试
 > 调试工具比开发工具更考验一个人的工程能力。
@@ -62,6 +63,20 @@ description: 记录后台开发常用的 Linux 工具
 
     pmap -x 12345
     ```
+3. gdb
+   - 调试工具
+   - 自成体系
+   例如查看 coredump：
+    ```
+    ulimit -c unlimited
+
+    gdb binary/path/of/corefile
+    bt(bt full)
+    p variable-name(print variable-name)
+    frame frame-number
+    q(quit)
+    ```
+4. 
 ---
 
 ## 文件处理
@@ -158,6 +173,7 @@ description: 记录后台开发常用的 Linux 工具
    - 可以直接改变被编辑文件内容的
    - 自成体系
 ---
+
 ## 性能分析
 
 1. 进程查询：ps
@@ -172,6 +188,17 @@ description: 记录后台开发常用的 Linux 工具
     # 常结合grep筛选信息
     ps -ajx
     ```
+
+    补充： Linux进程有几种状态
+
+    - D 不可中断 uninterruptible sleep (usually IO) 
+    - R 运行 runnable (on run queue) 
+    - S 中断 sleeping 
+    - T 停止 traced or stopped 
+    - Z 僵死 a defunct ("zombie") process 
+
+
+![linux_process_status.jpg](linux_process_status.jpg)
 
 2. 进程监控：top
     - 显示实时进程信息
@@ -250,6 +277,9 @@ description: 记录后台开发常用的 Linux 工具
 
     sar -W 1 2
     ```
+6. cpu信息
+   - lscpu 查看cpu配置
+   - cat /proc/cpuinfo查看每个 CPU 核的信息
 ---
 ## 网络工具
  1. 网卡配置（链路层）：ifconfig 
@@ -446,3 +476,4 @@ description: 记录后台开发常用的 Linux 工具
 
     tail -f test
     ```
+5. pstree
