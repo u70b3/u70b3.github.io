@@ -8,6 +8,8 @@ description: C++ 实现 singleton
 cover: 
 ---
 
+> 实际工程中，单例就是全局变量
+
 ## c++11 local static
 
 C++ 11 规定了 local static 在多线程条件下的初始化行为，要求编译器保证了内部静态变量的线程安全性。
