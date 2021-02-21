@@ -13,6 +13,12 @@ description: 记录后台开发常用的 Linux 工具
 
 ## 快捷操作
 
+### vi模式
+```bash
+#.bashrc
+set -o vi
+```
+
 ### 编辑命令
 - Ctrl + A ：移到命令行首
 - Ctrl + E ：移到命令行尾
@@ -33,7 +39,7 @@ description: 记录后台开发常用的 Linux 工具
 
 ### 进程相关
 - nohup 脱离terminal仍可运行
-- **&**，后台运行，与ctrl-z一样，结合**fg** **bg** **jobs**
+- `&`，后台运行，与`ctrl-Z`一样，结合 `fg` `bg` `jobs`
 
 --- 
 
