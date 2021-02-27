@@ -82,7 +82,10 @@ set -o vi
     frame frame-number
     q(quit)
     ```
-4. 
+4. strace
+   system call trace
+   查看系统调用
+
 ---
 
 ## 文件处理
@@ -487,3 +490,4 @@ set -o vi
     tail -f test
     ```
 5. pstree
+   进程树
