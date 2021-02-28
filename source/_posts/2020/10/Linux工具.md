@@ -83,9 +83,11 @@ set -o vi
     q(quit)
     ```
 4. strace
-   system call trace
-   查看系统调用
 
+   system call trace
+
+   查看系统调用
+   
 ---
 
 ## 文件处理
