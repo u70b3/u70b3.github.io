@@ -1,10 +1,10 @@
 ---
-title: 手撕代码-string
+title: 代码实现-string
 date: 2020-11-22 16:16:12
 tags: 
     - C++
-    - 手撕代码
-description: 手撕 C++ 的 string
+    - 代码实现
+description: 实现 C++ 的 string
 cover: 
 sticky: 
 ---
