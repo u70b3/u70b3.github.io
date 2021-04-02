@@ -14,7 +14,7 @@ tags:
 
 ## 二、工程版
 源代码：
-```
+```c++
 #ifndef _LRU_CACHE_H_
 #define _LRU_CACHE_H_
 
@@ -117,7 +117,9 @@ public:
 #endif
 ```
 测试代码：
-```
+
+
+```c++
 // 测试使用
 #include <iostream>
 #include <sstream>
