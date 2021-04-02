@@ -10,10 +10,10 @@ tags:
 
 > LRU是一种常用的本地缓存手段，使用C++实现一遍
 
-## 一、基础版
+## 一、快速版
 
 ## 二、工程版
-### 源代码
+源代码：
 ```
 #ifndef _LRU_CACHE_H_
 #define _LRU_CACHE_H_
@@ -116,7 +116,7 @@ public:
 
 #endif
 ```
-### 测试代码
+测试代码：
 ```
 // 测试使用
 #include <iostream>
