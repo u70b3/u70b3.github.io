@@ -1,11 +1,12 @@
 ---
 title: vscode断点调试
 date: 2021-04-15 17:35:24
+description: 记录一下vscode的debug配置
 tags:    
     - tool
 ---
 
-记录一下，方便copy
+记录一下vscode的debug配置，方便copy
 
 ## 调试C++
 在目录`.vscode`下创建`launch.json`
