@@ -5,6 +5,7 @@ tags:
     - C++
 description: 系统学习 C++ 的笔记，个人查漏补缺用，主要参考侯捷五门课（OOP/C++11/STL/startup/内存）、《C++ primer 5th》、《Effective Modern C++》
 cover: 
+sticky: 1
 ---
 
 ## 一、C++基础

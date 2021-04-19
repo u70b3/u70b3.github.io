@@ -34,9 +34,9 @@ index_img: "linear-gradient(135deg, #f0ecd2 0%, #fcb0f0 100%)"
 
 # index_img: false
 # The position of site info, eg: 300px/300em/300rem/10% (主頁標題距離頂部距離)
-index_site_info_top: 35%
+index_site_info_top: 50%
 # The height of top_img, eg: 300px/300em/300rem (主頁top_img高度)
-index_top_img_height: 300px
+index_top_img_height: 500px
 
 post_meta:
   page:

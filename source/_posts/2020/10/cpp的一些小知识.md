@@ -6,6 +6,7 @@ tags:
     - demo
 description: 记录 C++ 开发中的常用小技巧和一些易错易混知识，以及 C++ 的坑
 cover:
+sticky: 1
 ---
 
 

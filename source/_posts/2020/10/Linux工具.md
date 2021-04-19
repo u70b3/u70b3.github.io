@@ -8,7 +8,7 @@ tags:
 keywords: 'linux,shell,network,system'
 
 description: 记录后台开发常用的 Linux 工具
-
+sticky: 2
 ---
 
 ## 快捷操作
