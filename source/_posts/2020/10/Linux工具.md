@@ -29,7 +29,8 @@ set -o vi
 
 ### 控制命令
 - Ctrl + L：清屏
-- Ctrl + C：终止命令
+- Ctrl + C：终止进程（SIGINT信号）
+- Ctrl + D：终止输入（EOF）
 - Ctrl + Z：挂起命令
 - Ctrl + P、Ctrl + Q
 
