@@ -2,16 +2,17 @@
 title: 重学 C++ 笔记
 date: 2020-11-25 12:09:20
 tags:
-    - C++
+  - C++
 description: 系统学习 C++ 的笔记，个人查漏补缺用，主要参考侯捷五门课（OOP/C++11/STL/startup/内存）、《C++ primer 5th》、《Effective Modern C++》
-cover: 
+cover:
 sticky: 1
 ---
 
 ## 一、C++基础
-### 面向对象
-- 构造函数尽量使用列表初始化，可以少赋值一次（变量先初始化，再赋值）
 
+### 面向对象
+
+- 构造函数尽量使用列表初始化，可以少赋值一次（变量先初始化，再赋值）
 
 - 函数若在 class body 内定义完成，则自动成为 inline 候选人（inline 是对编译器的建议）
 - 相同 class 的各个 objects 互为 friends
@@ -21,7 +22,7 @@ sticky: 1
 - 引用本质是指针的语法糖
   - 引用定义时必须初始化
   - 引用传递不允许直接引用，可以间接引用
-- return-by-reference：传输者无需知道接收者是以reference形式接收
+- return-by-reference：传输者无需知道接收者是以 reference 形式接收
   ```cpp
   inline complex&
   __doapl(complex* ths, const complex& r)
@@ -32,11 +33,14 @@ sticky: 1
   ```
 
 ### 模板
+
 todo
 
-## 二、C++11
+## 二、C++2.0（11/14/17）
 
 ### 函数绑定
+推荐使用lambda代替std::bind
+
 ```cpp
 #include <iostream>
 #include <functional>
@@ -51,7 +55,7 @@ public:
 	void memberFunc(double d, int i, int j)
 	{
 		cout << d << endl;
-		cout << i << endl;      
+		cout << i << endl;
 		cout << j << endl;
 	}
 };
@@ -59,7 +63,7 @@ public:
 void memberFunc(double d, int i, int j)
 {
 	cout << d << endl;
-	cout << i << endl;     
+	cout << i << endl;
 	cout << j << endl;
 }
 
@@ -98,6 +102,7 @@ int main()
 	return 0;
 }
 ```
+
 运行结果如下：
 
 ```
@@ -129,6 +134,7 @@ int main()
 ### 智能指针
 
 ### auto
+
 ```c++
 vector<int> v;
 // 推荐用转发const auto& 也行
@@ -138,12 +144,28 @@ for(auto&& it:v)
 }
 ```
 
-## 三、STL
-todo 
+### 并发
 
-## 四、内存
+优先使用 task-based 接口而不是 thread-based
+
+```c++
+auto future = std::async(std::lauch::async, ...);
+```
+
+std::async 提供获取返回值的能力，也能更好的处理错误
+
+对于一次性事件的通信，优先使用`std::promise`/`std::future`，而不是`std::condition_variable` + `flag`。前者接口更简单不容易出错，可读性也更好。
+
+使用`std::atumic`实现无锁数据共享
+
+## 三、STL
+
 todo
 
-## 五、c++程序startup
+## 四、内存
+
+todo
+
+## 五、c++程序 startup
 
 todo
