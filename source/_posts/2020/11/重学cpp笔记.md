@@ -128,6 +128,16 @@ int main()
 
 ### 智能指针
 
+### auto
+```c++
+vector<int> v;
+// 推荐用转发const auto& 也行
+for(auto&& it:v)
+{
+    cout<<it<<endl;
+}
+```
+
 ## 三、STL
 todo 
 

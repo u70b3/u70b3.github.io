@@ -6,7 +6,7 @@ tags:
     - 数据库
 description: docker搭建本地MySQL、Redis集群、Elasticsearch数据库等
 cover: 
-sticky: 1
+sticky: 
 ---
 
 > 本地搭建数据库是真的折磨，基于docker可以很方便的解决，记录一下配置避免每次都重新搞
